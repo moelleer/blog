@@ -6,7 +6,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 
 export async function getPosts() {
-  const resolvedPath = path.resolve(process.cwd(), "your folder");
+  const resolvedPath = path.resolve(process.cwd(), "_posts");
   const postFilePaths = fs.readdirSync(resolvedPath).filter((postFilePath) => {
     return path.extname(postFilePath).toLowerCase() === ".mdx";
   });
