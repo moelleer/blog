@@ -33,6 +33,7 @@ export async function getPosts() {
 export async function getPost(slug: string) {
   try {
     const postFile = fs.readFileSync(`_posts/${slug}.mdx`);
+    console.log(postFile);
     const serializedPost = await serialize(postFile, {
       parseFrontmatter: true,
     });
