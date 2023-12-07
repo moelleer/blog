@@ -10,6 +10,8 @@ export async function getPosts() {
     return path.extname(postFilePath).toLowerCase() === ".mdx";
   });
 
+  console.log({ postFilePaths });
+
   const postPreviews: PostPreview[] = [];
 
   for (const postFilePath of postFilePaths) {
@@ -39,6 +41,7 @@ export async function getPost(slug: string) {
     });
     return { source: postFile, meta: serializedPost.frontmatter };
   } catch (e) {
+    console.log(e);
     return null;
   }
 }
