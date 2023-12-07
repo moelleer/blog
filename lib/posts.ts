@@ -31,25 +31,20 @@ export async function getPosts() {
 }
 
 export async function getPost(slug: string) {
-  try {
-    const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
-      return path.extname(postFilePath).toLowerCase() === ".mdx";
-    });
+  const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
+    return path.extname(postFilePath).toLowerCase() === ".mdx";
+  });
 
-    const postFilePath = postFilePaths.find((path) => path === `${slug}.mdx`);
+  const postFilePath = postFilePaths.find((path) => path === `${slug}.mdx`);
 
-    if (!postFilePath) {
-      return null;
-    }
-
-    const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
-
-    const serializedPost = await serialize(postFile, {
-      parseFrontmatter: true,
-    });
-    return { source: postFile, meta: serializedPost.frontmatter };
-  } catch (e) {
-    console.log(e);
+  if (!postFilePath) {
     return null;
   }
+
+  const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
+
+  const serializedPost = await serialize(postFile, {
+    parseFrontmatter: true,
+  });
+  return { source: postFile, meta: serializedPost.frontmatter };
 }

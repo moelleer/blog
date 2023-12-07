@@ -38,7 +38,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="bg-slate-300 dark:bg-black">
+    <main className="bg-slate-300 dark:bg-zinc-900">
       <div className="max-w-screen-xl mx-auto py-10 lg:py-20">
         <figure className="relative aspect-video">
           <Image
