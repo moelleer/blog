@@ -1,0 +1,23 @@
+---
+title: TestJS Summit
+description: En sammanfattning över mitt besök på TestJS Summit
+previewImage: https://i.imgur.com/rT0WRK3.png
+---
+
+# TestJS Summit
+Jättebra anordnad konferens som jag gärna besöker igen. Mycket av innehållet kan vara svårt för oss att börja använda oss rakt av, men vissa saker kan vi absolut börja göra.
+
+Lite allmänna saker:
+* `vitest` borde vi börja använda oss av, framför allt i våra `next`-projekt då det känns som en väldigt låg tröskel att komma över.
+* Vi borde försöka implementera _one component one hook_ i våra React-projekt. Både för att kunna underlätta för eventuell testning och för att få en allmänt bättre struktur, enklare komponenter att sätta sig in i och underlätta när andra utvecklare ska vidareutveckla på en site.
+### Favoritföreläsningar
+#### Component Testing With Vitest
+* Bra föreläsning med tydliga exempel hur man enkelt kan använda sig av `vitest` för att testa sina komponenter.
+* Känns som en väldigt låg tröskel för att komma igång med testning.
+* Finns ett färdigt `next`-exempel med det uppsatt [här](https://github.com/vercel/next.js/tree/canary/examples/with-vitest).
+* Inbyggt i flera av remix egna stackar, tex [här i Blues Stack](https://github.com/remix-run/blues-stack).
+#### Mock Service Worker 2.0
+* Skaparen av [mswjs.io](https://mswjs.io/), mycket intressant om version 2 av msw och hur mycket mer det nu består av bara Javascript och inte massor andra saker som gör att man behöver lära sig andra saker, istället för att låta Javascript göra de själv.
+#### The Art of ‘Humble Views’: Testing React Native Apps the Smart Way
+* Bra riktlinjer för hur man ska strukturera sin React-kod för att göra den så enkel som möjligt att testa.
+* _One component one hook_ för att enklare kunna testa sina komponenter och hooks.
