@@ -6,14 +6,15 @@ import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
 
 export async function getPosts() {
-  const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
+  const resolvedPath = path.resolve(process.cwd(), "your folder");
+  const postFilePaths = fs.readdirSync(resolvedPath).filter((postFilePath) => {
     return path.extname(postFilePath).toLowerCase() === ".mdx";
   });
 
   const postPreviews: PostPreview[] = [];
 
   for (const postFilePath of postFilePaths) {
-    const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
+    const postFile = fs.readFileSync(`${resolvedPath}/${postFilePath}`, "utf8");
 
     const serializedPost = await serialize(postFile, {
       parseFrontmatter: true,
@@ -31,7 +32,8 @@ export async function getPosts() {
 }
 
 export async function getPost(slug: string) {
-  const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
+  const resolvedPath = path.resolve(process.cwd(), "_posts");
+  const postFilePaths = fs.readdirSync(resolvedPath).filter((postFilePath) => {
     return path.extname(postFilePath).toLowerCase() === ".mdx";
   });
 
@@ -41,7 +43,7 @@ export async function getPost(slug: string) {
     return null;
   }
 
-  const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
+  const postFile = fs.readFileSync(`${resolvedPath}/${postFilePath}`, "utf8");
 
   const serializedPost = await serialize(postFile, {
     parseFrontmatter: true,
