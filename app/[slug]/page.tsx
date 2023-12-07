@@ -38,19 +38,19 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="bg-slate-300">
-      <div className="max-w-6xl mx-auto py-20">
+    <main className="bg-slate-300 dark:bg-black">
+      <div className="max-w-screen-xl mx-auto py-10 lg:py-20">
         <figure className="relative aspect-video">
           <Image
             src={String(post.meta.previewImage)}
             alt={String(post.meta.title)}
-            className="rounded-xl"
+            className="xl:rounded-xl"
             fill
           />
         </figure>
       </div>
 
-      <div className="max-w-3xl mx-auto prose lg:prose-xl pb-20">
+      <div className="max-w-3xl px-6 mx-auto prose lg:prose-xl dark:prose-invert pb-10 lg:pb-20 marker:text-black dark:marker:text-slate-300">
         <MDXRemote source={post.source} options={{ parseFrontmatter: true }} />
       </div>
     </main>

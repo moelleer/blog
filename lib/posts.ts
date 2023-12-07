@@ -10,8 +10,6 @@ export async function getPosts() {
     return path.extname(postFilePath).toLowerCase() === ".mdx";
   });
 
-  console.log({ postFilePaths });
-
   const postPreviews: PostPreview[] = [];
 
   for (const postFilePath of postFilePaths) {
@@ -34,8 +32,18 @@ export async function getPosts() {
 
 export async function getPost(slug: string) {
   try {
-    const postFile = fs.readFileSync(`_posts/${slug}.mdx`);
-    console.log(postFile);
+    const postFilePaths = fs.readdirSync("_posts").filter((postFilePath) => {
+      return path.extname(postFilePath).toLowerCase() === ".mdx";
+    });
+
+    const postFilePath = postFilePaths.find((path) => path === `${slug}.mdx`);
+
+    if (!postFilePath) {
+      return null;
+    }
+
+    const postFile = fs.readFileSync(`_posts/${postFilePath}`, "utf8");
+
     const serializedPost = await serialize(postFile, {
       parseFrontmatter: true,
     });
