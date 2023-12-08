@@ -56,6 +56,7 @@ export default async function Page({ params }: PageProps) {
             src={String(post.meta.previewImage)}
             alt={String(post.meta.title)}
             className="xl:rounded-xl object-cover"
+            loading="eager"
             fill
           />
         </figure>
