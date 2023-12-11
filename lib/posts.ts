@@ -26,8 +26,23 @@ export async function getPosts() {
     } as PostPreview);
   }
 
+  const sortedPostPreviews = postPreviews.toSorted((a, b) => {
+    const dateA = new Date(a.createdAt);
+    const dateB = new Date(b.createdAt);
+
+    if (dateA.getTime() / 1000 < dateB.getTime() / 1000) {
+      return 1;
+    }
+
+    if (dateA.getTime() / 1000 > dateB.getTime() / 1000) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   return {
-    postPreviews,
+    postPreviews: sortedPostPreviews,
   };
 }
 
