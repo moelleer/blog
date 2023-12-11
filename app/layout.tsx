@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -25,6 +26,7 @@ export default function RootLayout({
         <main className="pt-10">
           <div className="flex flex-col items-center justify-between">
             {children}
+            <Analytics />
           </div>
         </main>
       </body>
