@@ -33,6 +33,7 @@ export async function generateMetadata({
   }
 
   return {
+    metadataBase: new URL("https://blog-moelleer.vercel.app/"),
     title: `${String(post.meta.title)} - Johan Möller`,
     description: String(post.meta.description),
     openGraph: {
