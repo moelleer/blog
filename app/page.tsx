@@ -1,11 +1,17 @@
 import { getPosts } from "@/lib/posts";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Johan Möller",
+  description: "Min blogg om det mesta",
+};
 
 export default async function Home() {
   const { postPreviews } = await getPosts();
 
   return (
-    <div className="dark:prose-invert prose prose-a:no-underline hover:prose-a:underline">
+    <div className="dark:prose-invert prose prose-a:no-underline hover:prose-a:underline px-6">
       <h1>Välkommen till min blogg!</h1>
       {postPreviews.map((postPreview) => {
         return (
