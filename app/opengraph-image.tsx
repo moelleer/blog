@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
@@ -12,8 +11,29 @@ export const contentType = "image/png";
 export default async function Image() {
   return new ImageResponse(
     (
-      <div className="w-full h-full grid place-items-center bg-slate-300 dark:bg-zinc-900">
-        <Header />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span
+          style={{
+            width: "90px",
+            height: "90px",
+            fontSize: "30px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "2px solid #000",
+            borderRadius: "100%",
+          }}
+        >
+          JM
+        </span>
       </div>
     ),
     { ...size }
