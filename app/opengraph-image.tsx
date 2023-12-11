@@ -18,6 +18,7 @@ export default async function Image() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          background: "#cbd5e1",
         }}
       >
         <span
